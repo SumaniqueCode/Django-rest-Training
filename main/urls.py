@@ -21,10 +21,12 @@ from users.router import router as user_router
 from django.conf import settings
 from django.conf.urls.static import static
 from projects.router import router as project_router
+from tasks.router import router as task_router
 
 api_urlpatterns = [
     path("users/", include(user_router.urls)),
     path("projects/", include(project_router.urls)),
+    path("tasks/", include(task_router.urls)),
     
 ]
 urlpatterns = [
