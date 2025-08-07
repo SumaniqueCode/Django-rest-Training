@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 def generateImagePath( instance, file):
-    return f'images/users/{instance.username}/{file}'
+    return f'images/users/{instance.user.username}/{file}'
 class Profile(models.Model):
     class RoleOptions(models.TextChoices):
         Employer= 'E', 'Employer'
