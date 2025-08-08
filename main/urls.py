@@ -23,10 +23,9 @@ from django.conf.urls.static import static
 from projects.router import router as project_router
 from tasks.router import router as task_router
 
-auth_api_urls=[]
-
+auth_api_urls = []
 if settings.DEBUG:
-    auth_api_urls.append(path(r'verify/', include('rest_framework.urls')))
+    auth_api_urls.append(path(r"verify/", include("rest_framework.urls")))
 
 api_urlpatterns = [
     path("users/", include(user_router.urls)),
@@ -36,7 +35,7 @@ api_urlpatterns = [
 urlpatterns = [
     path("api/", include(api_urlpatterns)),
     path("admin/", admin.site.urls),
-]+auth_api_urls
+] + auth_api_urls
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

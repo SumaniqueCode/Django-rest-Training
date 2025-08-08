@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from .models import Profile
 from .serializers import ProfileSerializer, UserSerializer
 from django.contrib.auth.models import User
-from .permissions import *
+from .permissions import IsProfileOwnerOrGetPost, IsUserOwnerOrGetPost
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
