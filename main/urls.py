@@ -23,11 +23,15 @@ from django.conf.urls.static import static
 from projects.router import router as project_router
 from tasks.router import router as task_router
 
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 auth_api_urls = []
 if settings.DEBUG:
     auth_api_urls.append(path(r"verify/", include("rest_framework.urls")))
 
 api_urlpatterns = [
+    path("auth/token/", TokenObtainPairView.as_view()),
+    path("auth/token/check/", TokenRefreshView.as_view()),
     path("users/", include(user_router.urls)),
     path("projects/", include(project_router.urls)),
     path("tasks/", include(task_router.urls)),
