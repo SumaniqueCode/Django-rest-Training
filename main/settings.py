@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "projects",
     "tasks",
     "rest_framework_simplejwt",
+    'django_filters',
 ]
 
 MIDDLEWARE = [
